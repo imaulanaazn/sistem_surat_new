@@ -98,7 +98,10 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('script') ?>
+
 <script>
+    const isiSurat = <?= json_decode($jenisSurat["template"]) ?>
+
     tinymce.init({
         selector: '#form_template',
         plugins: 'lists link table code',
@@ -182,7 +185,6 @@
 
         judulSlot.innerText = judul || 'Judul Surat';
         isiSuratSlot.innerHTML = isi ? `<div style="text-indent:2rem">${isi}</div>` : '<p><i>Belum ada isi surat</i></p>';
-        syaratSlot.innerHTML = syarat ? `<p>${syarat}</p>` : '';
     };
 
     judulSurat.addEventListener('keyup', () => {
