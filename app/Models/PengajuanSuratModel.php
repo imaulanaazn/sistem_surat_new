@@ -37,7 +37,7 @@ class PengajuanSuratModel extends Model
     // Validation rules (kalau kamu mau pakai built-in validation CI4)
     protected $validationRules = [
         'nama'             => 'required|min_length[3]',
-        'nik'              => 'required|min_length[16]|max_length[16]',
+        'nik'              => 'required|min_length[14]|max_length[18]',
         'alamat'           => 'required',
         'jenis_surat_id'   => 'required|integer',
         'keperluan'        => 'required',

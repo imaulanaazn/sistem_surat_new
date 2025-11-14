@@ -28,9 +28,9 @@ class Database extends Config
      */
     public array $default = [
         'DSN'          => '',
-        'hostname'     => 'nozomi.proxy.rlwy.net',
+        'hostname'     => 'ballast.proxy.rlwy.net',
         'username'     => 'root',
-        'password'     => 'zssiRxoDpDjvVvbJRyNImUfzvxmMbYlD',
+        'password'     => 'izQITNBeiBFDlWoMVIBccEFOGRjTjLUA',
         'database'     => 'railway',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
@@ -43,7 +43,7 @@ class Database extends Config
         'compress'     => false,
         'strictOn'     => false,
         'failover'     => [],
-        'port'         => 18931,
+        'port'         => 30232,
         'numberNative' => false,
         'foundRows'    => false,
         'dateFormat'   => [
