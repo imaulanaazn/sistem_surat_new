@@ -80,7 +80,7 @@
               </div>
             </div>
             <div class="px-3 text-right basis-1/3">
-              <div class="inline-block w-12 h-12 text-center rounded-circle bg-gradient-to-tl from-emerald-500 to-teal-400">
+              <div class="inline-block w-12 h-12 text-center rounded-circle bg-gradient-to-tl from-orange-500 to-yellow-500">
                 <i class="ni leading-none ni-single-copy-04 text-lg relative top-3.5 text-white"></i>
               </div>
             </div>
