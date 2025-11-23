@@ -63,7 +63,14 @@
     <div class="w-11/12 lg:w-10/12 mx-auto">
         <?= $this->renderSection('content') ?>
     </div>
+    
+    <script>
+        setTimeout(() => {
+            document.querySelectorAll('[role="alert"]').forEach(el => el.remove());
+        }, 3000);
+    </script>
 </body>
+
 <!-- plugin for scrollbar  -->
 <script src="<?= base_url('assets/js/plugins/perfect-scrollbar.min.js') ?>" async></script>
 <!-- main script file  -->

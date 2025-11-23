@@ -79,6 +79,12 @@
 </body>
 
 <?= $this->renderSection('script'); ?>
+<script>
+    setTimeout(() => {
+        document.querySelectorAll('[role="alert"]').forEach(el => el.remove());
+    }, 3000);
+</script>
+
 <!-- plugin for charts  -->
 <script src="<?= base_url('assets/js/plugins/chartjs.min.js') ?>" async></script>
 <!-- plugin for scrollbar  -->

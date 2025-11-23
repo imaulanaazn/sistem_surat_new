@@ -41,7 +41,7 @@
                         </div>
                         <div class="px-3 text-right basis-1/3">
                             <div class="inline-block w-12 h-12 text-center rounded-circle bg-gradient-to-tl from-red-600 to-orange-600">
-                                <i class="ni leading-none ni-world text-lg relative top-3.5 text-white"></i>
+                                <i class="ni ni-mobile-button text-lg relative top-2.5 text-white"></i>
                             </div>
                         </div>
                     </div>
@@ -82,8 +82,8 @@
                             </div>
                         </div>
                         <div class="px-3 text-right basis-1/3">
-                            <div class="inline-block w-12 h-12 text-center rounded-circle bg-gradient-to-tl from-emerald-500 to-teal-400">
-                                <i class="ni leading-none ni-paper-diploma text-lg relative top-3.5 text-white"></i>
+                            <div class="inline-block w-12 h-12 text-center rounded-circle bg-gradient-to-tl from-orange-500 to-yellow-500">
+                                <i class="ni ni-box-2 text-lg relative top-2.5 text-white"></i>
                             </div>
                         </div>
                     </div>

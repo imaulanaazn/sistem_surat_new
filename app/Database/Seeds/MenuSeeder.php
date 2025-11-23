@@ -104,7 +104,7 @@ class MenuSeeder extends Seeder
                 'nama_menu'   => 'Ajukan Surat',
                 'url'         => '/masyarakat/pengajuan-surat',
                 'is_active'   => 1,
-                'icon'        => 'ni ni-calendar-grid-58',
+                'icon'        => 'ni ni-single-copy-04',
                 'role'        => 'masyarakat',
             ],
             [
@@ -118,7 +118,7 @@ class MenuSeeder extends Seeder
                 'nama_menu'   => 'Profile',
                 'url'         => '/masyarakat/profile',
                 'is_active'   => 1,
-                'icon'        => 'ni ni-calendar-grid-58',
+                'icon'        => 'ni ni-single-02',
                 'role'        => 'masyarakat',
             ],
         ];

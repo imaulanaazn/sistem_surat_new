@@ -40,7 +40,6 @@ class PengajuanSuratModel extends Model
         'nik'              => 'required|min_length[14]|max_length[18]',
         'alamat'           => 'required',
         'jenis_surat_id'   => 'required|integer',
-        'keperluan'        => 'required',
         'tanggal_pengajuan' => 'required|valid_date',
     ];
 

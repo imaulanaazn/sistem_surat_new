@@ -148,8 +148,8 @@ class PengajuanSurat extends BaseController
 
             // Panggil upload lampiran (jika ada)
             $this->uploadLampiranInternal($pengajuanId);
-
-            return redirect()->back()->with('success', 'Pengajuan surat dan lampiran berhasil dikirim!');
+            $this->session->setFlashData('success', 'Pengajuan surat dan lampiran berhasil dikirim!');
+            return redirect()->back();
         } else {
             return redirect()->back()->with('error', 'Gagal menyimpan data pengajuan surat.');
         }

@@ -79,6 +79,7 @@
                     </div>
                     <div class="flex-auto p-6">
                         <form action="/masyarakat/profile/update" method="post" enctype="multipart/form-data">
+                            <?= view('components/alert') ?>
                             <div class="flex flex-wrap -mx-3">
                                 <div class="w-full max-w-full px-3 shrink-0 md:w-6/12 md:flex-0">
                                     <div class="mb-4">

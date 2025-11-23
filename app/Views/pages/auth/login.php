@@ -32,6 +32,7 @@
     <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- Main Styling -->
     <link href="../assets/css/argon-dashboard-tailwind.css?v=1.0.1" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
 <body class="m-0 font-sans antialiased font-normal bg-white text-start text-base leading-default text-slate-500">
@@ -42,20 +43,10 @@
                     <div class="flex flex-wrap -mx-3">
                         <div class="flex flex-col w-full max-w-full px-3 mx-auto lg:mx-0 shrink-0 md:flex-0 md:w-7/12 lg:w-5/12 xl:w-4/12">
                             <div class="relative flex flex-col min-w-0 break-words bg-transparent border-0 shadow-none lg:py4 dark:bg-gray-950 rounded-2xl bg-clip-border">
-                                <div class="p-6 pb-0 mb-0">
-                                    <h4 class="font-bold"><?= session('user') ? 'Anda sudah masuk!' : 'Masuk' ?></h4>
-                                    <?php if (session('user')) : ?>
-                                        <p class="mb-0">Klik tombol dibawah untuk mengakses layanan</p>
-                                    <?php else : ?>
-                                        <p class="mb-0"><?= $login_type == 'admin' ? 'Masukkan username dan password untuk masuk' : 'Masukkan nama lengkap dan tanggal lahir untuk mengakses layanan' ?></p>
-                                    <?php endif; ?>
-                                </div>
                                 <div class="flex-auto p-6">
                                     <?php if (!session('user')): ?>
                                         <form role="form" method="post" action="<?= site_url('login?type=' . $login_type) ?>">
-                                            <?php if (isset($_SESSION['error'])): ?>
-                                                <p class="text-red-600 text-sm"><?= $_SESSION['error'] ?></p>
-                                            <?php endif; ?>
+                                            <?= view('components/alert') ?>
                                             <div class="tabs mb-4">
                                                 <div class="flex">
                                                     <a href="/login?type=masyarakat" class="flex-1 inline-block px-6 py-3 mr-3 font-bold text-center text-blue-500 uppercase align-middle transition-all <?= $login_type == 'masyarakat' ? 'bg-transparent border border-blue-500' : '' ?> rounded-lg cursor-pointer leading-normal text-xs ease-in tracking-tight-rem shadow-xs bg-150 bg-x-25 hover:-translate-y-px active:opacity-85 hover:shadow-md">Login Masyarakat</a>
@@ -106,6 +97,11 @@
         </section>
     </main>
 </body>
+<script>
+    setTimeout(() => {
+        document.querySelectorAll('[role="alert"]').forEach(el => el.remove());
+    }, 3000);
+</script>
 <!-- plugin for scrollbar  -->
 <script src="../assets/js/plugins/perfect-scrollbar.min.js" async></script>
 <!-- main script file  -->

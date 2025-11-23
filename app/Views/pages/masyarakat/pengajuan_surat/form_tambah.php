@@ -8,6 +8,7 @@
         </div>
         <div class="flex-auto p-6">
             <form role="form text-left" method="POST" action="<?= base_url() . 'masyarakat/pengajuan-surat/simpan' ?>" enctype="multipart/form-data">
+            <?= view('components/alert') ?>
                 <input type="hidden" name="warga_id" value="<?= $user['id'] ?>">
                 <div class="mb-4 flex-1">
                     <label for="" class="mb-2">Nama</label>

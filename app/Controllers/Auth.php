@@ -30,7 +30,7 @@ class Auth extends BaseController
     public function login()
     {
         $session = session();
-        $session->set('error', '');
+        $session->setFlashdata('error', '');
 
         // Get login type (?type=admin or ?type=masyarakat)
         $loginType = $this->request->getGet('type');
@@ -44,13 +44,13 @@ class Auth extends BaseController
 
         // Basic validation
         if ($loginType === 'admin' && (empty($username) || empty($password))) {
-            $session->set('error', 'Username dan password harus diisi');
+            $session->setFlashdata('error', 'Username dan password harus diisi');
             return redirect()->back()->withInput();
         }
 
         if ($loginType === 'masyarakat') {
             if (empty($nama) || empty($tglLahir)) {
-                $session->set('error', 'Nama dan tanggal lahir harus diisi');
+                $session->setFlashdata('error', 'Nama dan tanggal lahir harus diisi');
                 return redirect()->back()->withInput();
             }
         }
@@ -71,7 +71,7 @@ class Auth extends BaseController
 
                 return redirect()->to('/admin/dashboard');
             } else {
-                $session->set('error', 'Username atau password salah');
+                $session->setFlashdata('error', 'Username atau password salah');
                 return redirect()->back()->withInput();
             }
         }
@@ -96,13 +96,13 @@ class Auth extends BaseController
 
                 return redirect()->to('/masyarakat/dashboard');
             } else {
-                $session->set('error', 'Nama atau tanggal lahir tidak ditemukan');
+                $session->setFlashdata('error', 'Nama atau tanggal lahir tidak ditemukan');
                 return redirect()->back()->withInput();
             }
         }
 
         // ===== INVALID LOGIN TYPE =====
-        $session->set('error', 'Tipe login tidak valid');
+        $session->setFlashdata('error', 'Tipe login tidak valid');
         return redirect()->back();
     }
 
