@@ -79,9 +79,18 @@ class PengajuanSuratModel extends Model
     /**
      * Generate nomor surat otomatis (opsional)
      */
-    public function generateNoSurat($prefix = 'DS')
+    public function generateNoSurat($padding = 3)
     {
         $count = $this->countAllResults() + 1;
-        return sprintf("%s-%04d/%s", $prefix, $count, date('Y'));
+
+        $romanMonths = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'];
+        $monthRoman  = $romanMonths[date('n') - 1];
+        $year        = date('Y');
+
+        $number = str_pad($count, $padding, '0', STR_PAD_LEFT); // 001, 025, dll
+
+        $noSurat = "$number/$monthRoman/$year";
+
+        return $noSurat;
     }
 }
