@@ -68,7 +68,7 @@
                 style="position: absolute; right: 0; top: 10px; width: 70px; height: 70px; opacity: 0;">
         </div>
 
-        <h2>Data Warga</h2>
+        <h2>Arsip Surat</h2>
 
         <table>
             <thead>
