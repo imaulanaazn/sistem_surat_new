@@ -105,6 +105,7 @@
 
     tinymce.init({
         selector: '#txtarea_template',
+        table_use_colgroups: false, // 🔥 INI PENTING
         plugins: 'lists link table code',
         toolbar: 'undo redo | bold italic underline | alignleft aligncenter alignright | bullist numlist | variables | code',
         setup: function(editor) {

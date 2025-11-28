@@ -380,7 +380,7 @@ class PengajuanSurat extends BaseController
         // update data pengajuan
         $this->pengajuanModel->update($id, [
             'no_surat'   => $noSurat,
-            'nama'       => $judul,
+            'nama'       => $pengajuan['nama'],
             'file_surat' => 'uploads/surat/' . $pdfFileName,
             'status'     => 'selesai',
             'diarsipkan' => 1,

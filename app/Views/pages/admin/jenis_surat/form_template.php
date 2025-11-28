@@ -128,6 +128,7 @@
     tinymce.init({
         selector: '#form_template',
         plugins: 'lists link table code',
+        table_use_colgroups: false, // 🔥 INI PENTING
         toolbar: 'undo redo | bold italic underline | alignleft aligncenter alignright | bullist numlist | variables | code',
         setup: function(editor) {
             const variableNames = [
