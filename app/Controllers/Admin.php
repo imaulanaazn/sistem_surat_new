@@ -52,7 +52,7 @@ class Admin extends BaseController
             ->countAllResults();
 
         $pengajuanSurat = $this->pengajuanModel
-            ->orderBy('tanggal_pengajuan', 'DESC')
+            ->orderBy('created_at', 'DESC')
             ->limit(12)
             ->findAll();
 
