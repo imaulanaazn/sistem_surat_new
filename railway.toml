@@ -1,3 +1,0 @@
-[build.vars]
-NIXPACKS_PKGS = "php83"
-PHP_VERSION   = "8.3"
