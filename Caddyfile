@@ -1,21 +1,11 @@
 {
-    # Opsional: biar log lebih bersih
-    log {
-        level INFO
-    }
+	frankenphp
 }
 
-# Semua request diarahkan ke folder public
 :8080 {
-    root * /app/public
-
-    # Aktifkan PHP
-    php_fastcgi
-
-    # Rewrite semua request ke index.php (CodeIgniter style)
-    rewrite * /{path}
-    try_files {path} {path}/ /index.php?{query}
-
-    # Biar asset CSS/JS/gambar bisa diakses
-    file_server
+	root * /app/public
+	encode gzip zstd
+	php_server
+	try_files {path} {path}/ /index.php?{query}
+	file_server
 }
