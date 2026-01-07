@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\JenisSuratModel;
 use App\Models\PengajuanSuratModel;
 use CodeIgniter\HTTP\ResponseInterface;
+use CodeIgniter\I18n\Time;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Style\Alignment;
 use PhpOffice\PhpSpreadsheet\Style\Border;
@@ -39,7 +40,7 @@ class Laporan extends BaseController
         $totalPengajuan = $this->pengajuanModel
             ->countAllResults();
 
-        $periode = $this->request->getGet('periode') ?? 'bulanan'; // harian/bulanan/tahunan
+        $periode = $this->request->getGet('periode') ?? 'bulan-ini'; // harian/bulanan/tahunan
         $jenisSuratFilter = $this->request->getGet('jenis_surat_id');
 
         // ambil semua data dari pengajuan_surat
@@ -51,16 +52,35 @@ class Laporan extends BaseController
         }
 
         // filter periode waktu
+        $today = Time::now();
+
         switch ($periode) {
-            case 'bulanan':
-                $query->where('MONTH(tanggal_pengajuan)', date('m'))
-                    ->where('YEAR(tanggal_pengajuan)', date('Y'));
+            case 'hari-ini':
+                $query->where('tanggal_pengajuan >=', $today->format('Y-m-d 00:00:00'))
+                    ->where('tanggal_pengajuan <=', $today->format('Y-m-d 23:59:59'));
                 break;
-            case 'tahunan':
-                $query->where('YEAR(tanggal_pengajuan)', date('Y'));
+
+            case 'bulan-lalu':
+                // Membuat instance waktu untuk bulan lalu
+                $lastMonth = Time::parse('first day of last month');
+                $query->where('tanggal_pengajuan >=', $lastMonth->format('Y-m-01 00:00:00'))
+                    ->where('tanggal_pengajuan <=', $lastMonth->format('Y-m-t 23:59:59'));
                 break;
-            default: // harian
-                $query->where('DATE(tanggal_pengajuan)', date('Y-m-d'));
+
+            case 'bulan-ini':
+                $query->where('tanggal_pengajuan >=', $today->format('Y-m-01 00:00:00'))
+                    ->where('tanggal_pengajuan <=', $today->format('Y-m-t 23:59:59'));
+                break;
+
+            case 'tahun-ini':
+                $query->where('tanggal_pengajuan >=', $today->format('Y-01-01 00:00:00'))
+                    ->where('tanggal_pengajuan <=', $today->format('Y-12-31 23:59:59'));
+                break;
+
+            default:
+                // Default ke bulan ini
+                $query->where('tanggal_pengajuan >=', $today->format('Y-m-01 00:00:00'))
+                    ->where('tanggal_pengajuan <=', $today->format('Y-m-t 23:59:59'));
                 break;
         }
 

@@ -108,8 +108,8 @@
                         <div class="flex flex-col md:flex-row! justify-end" style="gap: 0.6rem;">
                             <select name="periode" class="text-sm focus:shadow-primary-outline leading-5.6 ease block rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-blue-500 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow">
                                 <option value="">Periode</option>
-                                <?php foreach (['harian', 'bulanan', 'tahunan'] as $periode): ?>
-                                    <option value="<?= $periode ?>" <?= ($filters['periode'] ?? '') == $periode ? 'selected' : '' ?>><?= ucfirst($periode) ?></option>
+                                <?php foreach (['hari-ini', 'bulan-ini', 'bulan-lalu', 'tahun-ini'] as $periode): ?>
+                                    <option value="<?= $periode ?>" <?= ($filters['periode'] ?? '') == $periode ? 'selected' : '' ?>><?= ucfirst(str_replace('-', ' ', $periode)) ?></option>
                                 <?php endforeach; ?>
                             </select>
                             <select name="jenis_surat_id" class="text-sm focus:shadow-primary-outline leading-5.6 ease block rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-blue-500 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow">
