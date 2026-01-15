@@ -67,6 +67,7 @@ Thumbs.db
 # 11. File database lokal (jika ada)
 /database.sqlite
 *.db
+/layanan_surat_gambarsari.sql
 
 # ========================================
 # Tips tambahan:
